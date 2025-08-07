@@ -20,7 +20,7 @@ This repository contains everything needed to deploy and manage Tyk API Gateway 
 
 1. **Clone this repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/rahmatlatif/tyk-operator-helm-standalone
    cd tyk-operator-standalone
    ```
 
