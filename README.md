@@ -50,8 +50,6 @@ This repository contains everything needed to deploy and manage Tyk API Gateway 
    kubectl logs -n tyk-cp deployment/tyk-operator-controller-manager | tail -5
    ```
 
-```
-
 ## 🔧 Configuration
 
 ### Environment Variables
