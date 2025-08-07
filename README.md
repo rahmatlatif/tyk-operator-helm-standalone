@@ -50,17 +50,6 @@ This repository contains everything needed to deploy and manage Tyk API Gateway 
    kubectl logs -n tyk-cp deployment/tyk-operator-controller-manager | tail -5
    ```
 
-## 📁 Repository Structure
-
-```
-tyk-operator-standalone/
-├── README.md                           # This file
-├── .gitignore                          # Git ignore rules
-├── values-operator.template.yaml       # Template for operator configuration
-├── TYK_OPERATOR_STANDALONE_GUIDE.md    # Comprehensive deployment guide
-├── TYK_OPERATOR_QUICK_REFERENCE.md     # Quick reference commands
-├── oas-api-definition.json             # Example OpenAPI definition
-└── tyk-oas-api-definition.yaml         # Example Kubernetes CRD
 ```
 
 ## 🔧 Configuration
@@ -83,15 +72,6 @@ The operator requires the following environment variables:
 - **Different namespace**: `http://dashboard-svc-tyk-cp-tyk-dashboard.tyk-cp.svc.cluster.local:3000`
 - **External dashboard**: `https://your-dashboard.example.com`
 
-## 📚 Documentation
-
-- [TYK_OPERATOR_STANDALONE_GUIDE.md](TYK_OPERATOR_STANDALONE_GUIDE.md) - Comprehensive deployment guide
-- [TYK_OPERATOR_QUICK_REFERENCE.md](TYK_OPERATOR_QUICK_REFERENCE.md) - Quick reference for essential commands
-
-## 🔐 Security
-
-⚠️ **Important**: The `values-operator.yaml` file contains sensitive information and is excluded from git. Always use the template file and replace placeholder values with your actual credentials.
-
 ## 🛠️ Management
 
 ### Update Configuration
@@ -99,45 +79,7 @@ The operator requires the following environment variables:
 helm upgrade tyk-operator tyk-helm/tyk-operator -n tyk-cp -f values-operator.yaml
 ```
 
-### Scale Operator
-```bash
-helm upgrade tyk-operator tyk-helm/tyk-operator -n tyk-cp \
-  --set replicaCount=3 \
-  -f values-operator.yaml
-```
-
 ### Uninstall
 ```bash
 helm uninstall tyk-operator -n tyk-cp
 ```
-
-## 🔍 Troubleshooting
-
-See the [TYK_OPERATOR_STANDALONE_GUIDE.md](TYK_OPERATOR_STANDALONE_GUIDE.md) for detailed troubleshooting information.
-
-## 📊 Monitoring
-
-The operator exposes metrics on port 8080. Access them via:
-```bash
-kubectl port-forward -n tyk-cp service/tyk-operator-controller-manager-metrics-service 8080:8080
-```
-
-Then visit: `http://localhost:8080/metrics`
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🔗 Links
-
-- [Tyk Operator Documentation](https://tyk.io/docs/tyk-operator/)
-- [Tyk Helm Charts Repository](https://github.com/TykTechnologies/tyk-charts)
-- [Tyk Operator GitHub Repository](https://github.com/TykTechnologies/tyk-operator) 
