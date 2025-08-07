@@ -1,0 +1,18 @@
+# Tyk Operator standalone deployment values
+# Copy this file to values-operator.yaml and replace the placeholder values
+envVars:
+  - name: TYK_OPERATOR_LICENSEKEY
+    value: "YOUR_OPERATOR_LICENSE_KEY_HERE"
+  - name: TYK_MODE
+    value: "pro"  # Use "ce" for Community Edition, "pro" for Pro/Licensed
+  - name: TYK_URL
+    value: "http://dashboard-svc-tyk-cp-tyk-dashboard.tyk-cp.svc:3000"
+  - name: TYK_AUTH
+    value: "YOUR_API_KEY_HERE"
+  - name: TYK_ORG
+    value: "YOUR_ORG_ID_HERE"
+
+# Remove the secret reference since we're using environment variables
+envFrom: []
+
+replicaCount: 1 

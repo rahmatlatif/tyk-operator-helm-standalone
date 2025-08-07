@@ -1,0 +1,11 @@
+apiVersion: tyk.tyk.io/v1alpha1
+kind: TykOasApiDefinition
+metadata:
+  name: petstore
+  namespace: tyk
+spec:
+  tykOAS:
+    configmapRef:
+      name: tyk-oas-api-config
+      namespace: tyk
+      keyName: oas-api-definition.json
