@@ -124,19 +124,6 @@ Look for successful connection messages:
    - Check if the license is not expired
    - Ensure the license is for the correct Tyk version
 
-### Debug Commands
-
-```bash
-# Check operator pod status
-kubectl describe pod -n tyk-cp -l app.kubernetes.io/name=tyk-operator
-
-# Check operator logs
-kubectl logs -n tyk-cp deployment/tyk-operator-controller-manager
-
-# Check environment variables
-kubectl exec -n tyk-cp deployment/tyk-operator-controller-manager -- env | grep TYK
-```
-
 ## 🔄 Updating Configuration
 
 ### Update Environment Variables
@@ -146,14 +133,6 @@ vim values-operator.yaml
 
 # Upgrade the deployment
 helm upgrade tyk-operator tyk-helm/tyk-operator -n tyk-cp -f values-operator.yaml
-```
-
-### Scale Operator
-```bash
-# Scale to multiple replicas
-helm upgrade tyk-operator tyk-helm/tyk-operator -n tyk-cp \
-  --set replicaCount=3 \
-  -f values-operator.yaml
 ```
 
 ## 🧹 Cleanup
@@ -167,32 +146,3 @@ helm uninstall tyk-operator -n tyk-cp
 ```bash
 kubectl delete namespace tyk-cp
 ```
-
-## 📚 Additional Resources
-
-- [Tyk Operator Documentation](https://tyk.io/docs/tyk-operator/)
-- [Tyk Helm Charts Repository](https://github.com/TykTechnologies/tyk-charts)
-- [Tyk Operator GitHub Repository](https://github.com/TykTechnologies/tyk-operator)
-
-## 🔐 Security Notes
-
-- Store sensitive values (license keys, API keys) securely
-- Consider using Kubernetes secrets for production deployments
-- Rotate API keys regularly
-- Monitor operator logs for security events
-- Use RBAC to restrict operator permissions
-
-## 📊 Monitoring
-
-### Health Check
-```bash
-kubectl get endpoints -n tyk-cp tyk-operator-controller-manager-metrics-service
-```
-
-### Metrics Port
-The operator exposes metrics on port 8080 by default. You can access them via:
-```bash
-kubectl port-forward -n tyk-cp service/tyk-operator-controller-manager-metrics-service 8080:8080
-```
-
-Then visit: `http://localhost:8080/metrics` 
