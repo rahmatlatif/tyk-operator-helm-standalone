@@ -1,0 +1,29 @@
+# Define Paths
+
+    "paths": {
+        "/anything": {
+            "put": {
+                "operationId": "anythingput",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+
+#Define Middleware
+
+    "middleware": {
+        "operations": {
+            "anythingput": {
+                "transformResponseBody": {
+                    "enabled": true,
+                    "format": "json",
+                    "body": "ewogICJ2YWx1ZTEiOiAie3sudmFsdWUyfX0iLAogICJ2YWx1ZTIiOiAie3sudmFsdWUxfX0iLAogICJyZXEtaGVhZGVyIjogInt7Ll90eWtfY29udGV4dC5oZWFkZXJzX1hfSGVhZGVyfX0iLAogICJyZXEtcGFyYW0iOiAie3suX3R5a19jb250ZXh0LnJlcXVlc3RfZGF0YS5wYXJhbX19Igp9"
+                }
+            }
+        }
+    }
+

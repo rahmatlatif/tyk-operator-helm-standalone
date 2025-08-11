@@ -1,3 +1,4 @@
+#Define Security Schemes
 "securitySchemes": {
     "authToken": {
       "type": "apiKey",
@@ -6,7 +7,7 @@
     }
   }
 
-
+#Define Security
 "security": [
     {
       "authToken": []
