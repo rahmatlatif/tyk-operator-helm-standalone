@@ -1,0 +1,11 @@
+apiVersion: tyk.tyk.io/v1alpha1
+kind: TykOasApiDefinition
+metadata:
+  name: example-response-body-transform
+  namespace: tyk
+spec:
+  tykOAS:
+    configmapRef:
+      name: tyk-oas-api-config-transform
+      namespace: tyk
+      keyName: response-transform.json

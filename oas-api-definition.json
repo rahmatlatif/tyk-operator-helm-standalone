@@ -4,20 +4,7 @@
     "version": "1.0.0"
   },
   "openapi": "3.0.3",
-  "components": {
-    "securitySchemes": {
-      "authToken": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      }
-    }
-  },
-  "security": [
-    {
-      "authToken": []
-    }
-  ],
+  "components": {},
   "paths": {},
   "x-tyk-api-gateway": {
     "info": {
@@ -33,14 +20,6 @@
       "listenPath": {
         "value": "/petstore/",
         "strip": true
-      },
-      "authentication": {
-        "enabled": true,
-        "securitySchemes": {
-          "authToken": {
-            "enabled": true
-          }
-        }
       }
     }
   }

@@ -5,7 +5,18 @@
         "version": "1.0.0"
     },
     "openapi": "3.0.3",
-    "paths": {},
+    "paths": {
+        "/anything": {
+            "put": {
+                "operationId": "anythingput",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
     "x-tyk-api-gateway": {
         "info": {
             "name": "example-response-body-transform",
@@ -20,6 +31,17 @@
             "listenPath": {
                 "value": "/example-response-body-transform/",
                 "strip": true
+            }
+        },
+        "middleware": {
+            "operations": {
+                "anythingput": {
+                    "transformResponseBody": {
+                        "enabled": true,
+                        "format": "json",
+                        "body": "ewogICJ2YWx1ZTEiOiAie3sudmFsdWUyfX0iLAogICJ2YWx1ZTIiOiAie3sudmFsdWUxfX0iLAogICJyZXEtaGVhZGVyIjogInt7Ll90eWtfY29udGV4dC5oZWFkZXJzX1hfSGVhZGVyfX0iLAogICJyZXEtcGFyYW0iOiAie3suX3R5a19jb250ZXh0LnJlcXVlc3RfZGF0YS5wYXJhbX19Igp9"
+                    }
+                }
             }
         }
     }
