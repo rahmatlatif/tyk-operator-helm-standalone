@@ -1,0 +1,24 @@
+"securitySchemes": {
+    "authToken": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+
+
+"security": [
+    {
+      "authToken": []
+    }
+  ]
+
+#In 'server' section
+"authentication": {
+        "enabled": true,
+        "securitySchemes": {
+          "authToken": {
+            "enabled": true
+          }
+        }
+      }
